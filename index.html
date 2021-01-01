@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PWA-App</title>
+    <title>Don Frito</title>
     
 
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -751,7 +751,7 @@
             $("#verbottom").css("display", "none");
             $.ajax({
                 type: "GET",
-                url: "http://localhost/Carlos%20Salgado/consulta_producto.php?id=" + id,
+                url: "https://carritocesars.herokuapp.com/consulta_producto.php?id=" + id,
                 dataType: 'json',
                 success: function (result) {
                     if (result.producto != null) {
