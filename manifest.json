@@ -1,6 +1,6 @@
 {
-  "name": "Ironman PWA",
-  "short_name": "Ironman",
+  "name": "Don Frito",
+  "short_name": "Don Frito",
   "icons": [
     {
       "src": "images/icons/app-icon-48x48.png",
@@ -44,7 +44,7 @@
   "orientation": "portrait-primary",
   "background_color": "#fff",
   "theme_color": "#3f51b5",
-  "description": "A simple Ironman PWA.",
+  "description": "Don Frito, sistema de compras",
   "dir": "ltr",
   "lang": "en-US"
 }
