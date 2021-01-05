@@ -3,24 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta property="og:title" content="Carta Don Frito" />
+    <meta property="og:description" content="En Don Frito encontrarás los mejores sándwiches, pollos broaster y salchipapas de la mejor calidad y hechos en casa. Con óptimos insumos y la inigualable sazón peruana." />
+    <meta name="description"
+        content="En Don Frito encontrarás los mejores sándwiches, pollos broaster y salchipapas de la mejor calidad y hechos en casa. Con óptimos insumos y la inigualable sazón peruana." />
+    <meta property="og:image" content="https://donfrito.conmicarta.com/images/app-icon.png" />
+    <meta property="og:url" content="https://donfrito.conmicarta.com/" />
+    <meta property="og:type" content="image.png" />
+
     <title>Don Frito</title>
-    
+
 
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/assets/css/now-ui-kit.css?v=1.2.0" rel="stylesheet" />
     <link href="/assets/fontawesome/all.min.css" rel="stylesheet" />
     <link href="/assets/fontawesome/fontawesome.min.css" rel="stylesheet" />
 
-
-    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script-->
-
     <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="favicon.ico">
     <meta name="theme-color" content="#3f51b5">
 
 
@@ -54,8 +58,10 @@
             <div class="navbar-brand d-flex align-items-center" href="#">
                 <img src="" alt="" id="logoemp" style="border-radius: 20px;" width="60px" height="60px">
                 <div class=" d-flex flex-column  ">
-                    <h4 class="mt-0 mb-0 text-light ml-2  " id="nombrealmacen">Empresa</h4>
-                    <p class="text-light ml-2 mt-1 text-muted  " id="rubro" style="margin-top:-10px;"></p>
+                    <!--h4 class="mt-0 mb-0 text-light ml-2  " id="nombrealmacen">Empresa</h4-->
+                    <h4 class="mt-0 mb-0 text-light ml-2  " id="nombrealmacen">Don Frito</h4>
+                    <!--p class="text-light ml-2 mt-1 text-muted  " id="rubro" style="margin-top:-10px;"></p-->
+                    <p class="text-light ml-2 mt-1 text-muted  " style="margin-top:-10px;">Comida rápida</p>
                 </div>
             </div>
             <a class="btn btn-sm btn-outline-light my-2 pr-3 pl-3 pt-2 pb-2 my-sm-0" id="pdfurl" href="">Seguir
@@ -290,14 +296,6 @@
     <script src="../assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
 
     <script src="../assets/js/now-ui-kit.js?v=1.2.0" type="text/javascript"></script>
-
-    <!--script src="https://code.jquery.com/jquery-3.2.1.min.js"></script-->
-    <!--script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script-->
 
     <script>
         var pintadodecomplementos = function (posicioncarrito) {
@@ -751,13 +749,13 @@
             $("#verbottom").css("display", "none");
             $.ajax({
                 type: "GET",
-                url: "https://carritocesars.herokuapp.com/consulta_producto.php?id=" + id,
+                url: "https://tablerodonfrito.herokuapp.com/consulta_producto.php?id=" + id,
                 dataType: 'json',
                 success: function (result) {
                     if (result.producto != null) {
                         //var producto = result.producto;
                         if (localStorage.carrito != null) {
-                            llenarformasentrega();
+                            llenarformasentregaactl(result.entrega);
                             pintarcarrito();
                             actualizarbtnwhatsaap();
                         }
@@ -1100,6 +1098,10 @@
             //actualizarurlwhatsapp();
         }
 
+        var llenarformasentregaactl = function (formas) {
+            localStorage.formasentrega = JSON.stringify(formas);
+            llenarformasentrega();
+        }
         var llenarformasentrega = function () {
             var formasentrega = JSON.parse(localStorage.formasentrega);
             var option = `<option value="-1" disabled  selected>Seleccione Forma de Entrega</option>`;
@@ -1110,7 +1112,7 @@
         }
     </script>
 
-    
+
 </body>
 
 </html>
