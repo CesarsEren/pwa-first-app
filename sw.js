@@ -8,7 +8,7 @@ self.addEventListener('install', function(event) {
         console.log('[Service Worker] Precaching App Shell');
         cache.addAll([
           '/',
-		  'tienda.html',
+		  
           'css/style.css',
           'images/ironman.png',         
         ]);
