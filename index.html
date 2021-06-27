@@ -800,7 +800,7 @@
             $("#verbottom").css("display", "none");
             $.ajax({
                 type: "GET",
-                url: "https://tablerodonfrito.herokuapp.com/consulta_producto.php?id=" + id,
+                url: "https://tablerodonfrito1.herokuapp.com/consulta_producto.php?id=" + id,
                 dataType: 'json',
                 success: function (result) {
                     if (result.producto != null) {
